@@ -5,7 +5,6 @@ import com.codebase.expensetrackerapi.repositories.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -15,15 +14,15 @@ public class ExpenseService {
 
     public List<Expense> getAll() {
         //ALL MY business LOGIC GOES IN THIS CLASS
-        return expenseRepository.getAll();
+        return expenseRepository.findAll();
     }
 
     public boolean addExpense(final Expense expense) {
 
-        if (expenseRepository.findExpense(expense)) {
+        if (expenseRepository.findByName(expense.getName()).isPresent()) {
             return false;
         }
-        expenseRepository.addExpense(expense);
+        expenseRepository.insert(expense);
         return true;
     }
 

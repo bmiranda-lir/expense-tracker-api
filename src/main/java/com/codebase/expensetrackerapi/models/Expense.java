@@ -1,10 +1,12 @@
 package com.codebase.expensetrackerapi.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-
+@Document(collection = "expenses")
 public class Expense {
 
+    @Id
     private String name;
     private int value;
 
