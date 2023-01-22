@@ -1,11 +1,9 @@
 HELP.md
 target/
-.mvn/**
-mvnw
-mvnw.cmd
 expense-tracker-api.iml
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
+/.mvn/
