@@ -20,7 +20,7 @@ public class ExpenseController {
 
     @PostMapping()
     public boolean addExpense(@RequestBody Expense expense){
-        return true;
+        return expenseService.addExpense(expense);
     }
 
     @Autowired

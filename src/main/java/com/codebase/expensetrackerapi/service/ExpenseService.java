@@ -14,10 +14,17 @@ public class ExpenseService {
     private ExpenseRepository expenseRepository;
 
     public List<Expense> getAll() {
-
         //ALL MY business LOGIC GOES IN THIS CLASS
-
         return expenseRepository.getAll();
+    }
+
+    public boolean addExpense(final Expense expense) {
+
+        if (expenseRepository.findExpense(expense)) {
+            return false;
+        }
+        expenseRepository.addExpense(expense);
+        return true;
     }
 
 

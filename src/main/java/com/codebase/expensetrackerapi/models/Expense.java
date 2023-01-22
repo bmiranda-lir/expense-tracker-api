@@ -1,5 +1,8 @@
 package com.codebase.expensetrackerapi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 public class Expense {
 
     private String name;
