@@ -1,6 +1,7 @@
 package com.codebase.expensetrackerapi.controller;
 
-import com.codebase.expensetrackerapi.models.Expense;
+import com.codebase.expensetrackerapi.entity.Expense;
+import com.codebase.expensetrackerapi.models.ExpenseRequest;
 import com.codebase.expensetrackerapi.service.ExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,8 @@ public class ExpenseController {
     }
 
     @PostMapping()
-    public boolean addExpense(@RequestBody Expense expense){
-        return expenseService.addExpense(expense);
+    public void addExpense(@RequestBody ExpenseRequest expenseRequest){
+        expenseService.addExpense(expenseRequest);
     }
 
     @Autowired
