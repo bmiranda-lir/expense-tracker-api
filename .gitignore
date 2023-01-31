@@ -2,6 +2,6 @@ HELP.md
 target/
 expense-tracker-api.iml
 .idea
-.mvn/
+/.mvn/
 mvnw.cmd
 mvnw
