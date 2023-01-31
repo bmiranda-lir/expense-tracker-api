@@ -1,6 +1,8 @@
 package com.codebase.expensetrackerapi.service;
 
-import com.codebase.expensetrackerapi.models.Expense;
+import com.codebase.expensetrackerapi.entity.Expense;
+import com.codebase.expensetrackerapi.mapper.ExpenseMapper;
+import com.codebase.expensetrackerapi.models.ExpenseRequest;
 import com.codebase.expensetrackerapi.repositories.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,17 +15,11 @@ public class ExpenseService {
     private ExpenseRepository expenseRepository;
 
     public List<Expense> getAll() {
-        //ALL MY business LOGIC GOES IN THIS CLASS
         return expenseRepository.findAll();
     }
 
-    public boolean addExpense(final Expense expense) {
-
-        if (expenseRepository.findByName(expense.getName()).isPresent()) {
-            return false;
-        }
-        expenseRepository.insert(expense);
-        return true;
+    public void addExpense(final ExpenseRequest expenseRequest) {
+        expenseRepository.insert(ExpenseMapper.toEntity(expenseRequest));
     }
 
 

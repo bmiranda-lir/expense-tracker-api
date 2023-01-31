@@ -1,3 +1,5 @@
 server:
   servlet:
     context-path: /expenses
+
+spring.data.mongodb.auto-index-creation: true
